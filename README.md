@@ -1,6 +1,34 @@
 # MLearn
 
-Contains machine learning algorithms implemented in [Google Go](http://golang.org) for educational purpose.
+Contains machine learning algorithms implemented in
+[Google Go](http://golang.org) for educational purpose.
+
+## Example
+
+```Go
+import "github.com/bodokaiser/mlearn"
+
+// learn the AND function
+func main() {
+    // features set
+    x := [][]float64{
+        []float64{0, 1},
+        []float64{1, 0},
+        []float64{1, 1},
+    }
+    // labels set for features
+    y := []float64{0, 0, 1}
+
+    // create a classifier
+    clf := &mlearn.Perceptron{
+        Rate: 0.4, []float64{0, 0, 0},
+    }
+    // fit the classifier to the data
+    clf.Fit(x, y)
+    // predict the label for this unknown case
+    clf.Preidct([]float64{0, 0})
+}
+```
 
 ## License
 
